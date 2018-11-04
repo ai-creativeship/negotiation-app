@@ -4,6 +4,8 @@ export const state = {
   isModalOpen: false,
   maximalValueTabTitle: '',
   minimalValueTabTitle: '',
+  maximalValueInputPlaceholder: '',
+  minimalValueInputPlaceholder: '',
   maximalValue: undefined,
   minimalValue: undefined
 }

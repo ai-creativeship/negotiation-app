@@ -5,13 +5,11 @@
 </template>
 
 <script>
+import send from '@/mixins/send.js'
+
 export default {
   name: 'SendButton',
-  methods: {
-    send () {
-      this.$emit('send')
-    }
-  }
+  mixins: [send]
 }
 </script>
 

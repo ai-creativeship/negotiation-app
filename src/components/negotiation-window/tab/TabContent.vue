@@ -3,6 +3,7 @@
     <div v-if="isVisible()">
       <input-field
         v-model="unconfirmedValue"
+        :placeholder="placeholder()"
         :name="title"
         @send="onSend"
       />
@@ -47,7 +48,9 @@ export default {
       maximalValueTabTitle: state => state.general.maximalValueTabTitle,
       minimalValueTabTitle: state => state.general.minimalValueTabTitle,
       maximalValue: state => state.general.maximalValue,
-      minimalValue: state => state.general.minimalValue
+      minimalValue: state => state.general.minimalValue,
+      maximalValueInputPlaceholder: state => state.general.maximalValueInputPlaceholder,
+      minimalValueInputPlaceholder: state => state.general.minimalValueInputPlaceholder
     })
   },
   mounted () {
@@ -87,6 +90,15 @@ export default {
         return !this.minimalValue
       } else {
         throw new Error('Incorrect tab title - can\'t set correct value')
+      }
+    },
+    placeholder () {
+      if (this.title === this.maximalValueTabTitle) {
+        return this.maximalValueInputPlaceholder
+      } else if (this.title === this.minimalValueTabTitle) {
+        return this.minimalValueInputPlaceholder
+      } else {
+        throw new Error('Incorrect tab title - can\'t set placeholder')
       }
     }
   }

@@ -1,4 +1,5 @@
 import { SET_ACTIVE_TAB, SET_MODAL_OPEN, RESET_NEGOTIATION_WINDOW,
+  SET_MAXIMAL_VALUE_INPUT_PLACEHOLDER, SET_MINIMAL_VALUE_INPUT_PLACEHOLDER,
   SET_MAXIMAL_VALUE_TAB_TITLE, SET_MINIMAL_VALUE_TAB_TITLE,
   SET_MAXIMAL_VALUE, SET_MINIMAL_VALUE } from '../../actions/general'
 
@@ -33,6 +34,12 @@ export default {
     state.isModalOpen = false
     state.maximalValue = undefined
     state.minimalValue = undefined
+  },
+  [SET_MAXIMAL_VALUE_INPUT_PLACEHOLDER]: (state, placeholder) => {
+    state.maximalValueInputPlaceholder = placeholder
+  },
+  [SET_MINIMAL_VALUE_INPUT_PLACEHOLDER]: (state, placeholder) => {
+    state.minimalValueInputPlaceholder = placeholder
   },
   [SET_MAXIMAL_VALUE_TAB_TITLE]: (state, title) => {
     state.maximalValueTabTitle = title

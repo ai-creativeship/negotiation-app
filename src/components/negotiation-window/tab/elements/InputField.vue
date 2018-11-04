@@ -2,11 +2,11 @@
   <div>
     <input
       :value="value"
+      :name="name"
+      :aria-placeholder="placeholder"
+      :placeholder="placeholder"
       type="number"
       min="0"
-      :name="name"
-      aria-placeholder="Type message... TODO"
-      placeholder="Type message... TODO"
       autofocus
       @input="$emit('input', $event.target.value)"
       @keyup.enter="send"
@@ -15,8 +15,11 @@
 </template>
 
 <script>
+import send from '@/mixins/send.js'
+
 export default {
   name: 'InputField',
+  mixins: [send],
   props: {
     value: {
       type: String,
@@ -27,11 +30,11 @@ export default {
       type: String,
       default: 'name',
       required: false
-    }
-  },
-  methods: {
-    send () {
-      this.$emit('send')
+    },
+    placeholder: {
+      type: String,
+      default: 'Enter value',
+      required: false
     }
   }
 }
