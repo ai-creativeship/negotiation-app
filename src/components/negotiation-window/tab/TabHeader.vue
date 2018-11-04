@@ -26,5 +26,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.active {
+  border-bottom: 1px solid #daa;
+}
 </style>

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import NegotiationWindow from '@/components/NegotiationWindow.vue'
+import NegotiationWindow from '@/components/negotiation-window/NegotiationWindow.vue'
 export default {
   name: 'App',
   components: {
