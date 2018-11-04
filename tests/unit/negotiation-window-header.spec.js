@@ -1,7 +1,12 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 import NegotiationWindowHeader from '@/components/negotiation-window/NegotiationWindowHeader.vue'
 
 describe('NegotiationWindowHeader.vue', () => {
+  it('renders a vue instance', () => {
+    const wrapper = shallowMount(NegotiationWindowHeader)
+    expect(wrapper.isVueInstance()).toBe(true)
+  })
+
   it('renders two tab headers', () => {
     const wrapper = mount(NegotiationWindowHeader)
 

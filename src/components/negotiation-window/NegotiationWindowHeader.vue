@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import NegotiationWindowComponent from '@/mixins/negotiation-window-component.js'
 import TabHeader from './tab/TabHeader.vue'
 
 export default {
@@ -23,35 +24,7 @@ export default {
   components: {
     TabHeader
   },
-  props: {
-    tabsTitles: {
-      type: Object,
-      default: function () {
-        return {
-          employerTab: 'Employer-Tab',
-          employeeTab: 'Employee-Tab'
-        }
-      },
-      required: false
-    },
-    activeTab: {
-      type: String,
-      default: '',
-      required: false
-    }
-  },
-  mounted: function () {
-    this.switchActiveTab(this.tabsTitles.employerTab)
-  },
-  methods: {
-    switchActiveTab (newActive) {
-      this.$emit('switchActiveTab', newActive)
-    },
-    isActiveTab (tabToCheck) {
-      return this.activeTab === tabToCheck
-    }
-  }
-
+  mixins: [NegotiationWindowComponent]
 }
 </script>
 
