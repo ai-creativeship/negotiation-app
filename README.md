@@ -1,2 +1,2 @@
 # negotiation-app
-VueJS Negotiation App - Sennder assignment
+VueJS Assignment - Negotiation App
