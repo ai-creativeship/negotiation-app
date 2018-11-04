@@ -1,5 +1,7 @@
 # negotiation-app
 
+[![Build Status](https://travis-ci.com/jmaczan/negotiation-app.svg?token=sgNqUBkrsYN1KidWqVXT&branch=master)](https://travis-ci.com/jmaczan/negotiation-app)
+
 VueJS Assignment - Negotiation App
 
 ## Project setup
