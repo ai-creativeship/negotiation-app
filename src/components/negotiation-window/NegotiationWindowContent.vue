@@ -1,20 +1,32 @@
 <template>
   <div class="content__container">
-    <tab-content />
-    <tab-content />
+    <tab-content
+      v-if="activeTab === maximalValueTabTitle"
+      :title="maximalValueTabTitle"
+    />
+    <tab-content
+      v-if="activeTab === minimalValueTabTitle"
+      :title="minimalValueTabTitle"
+    />
   </div>
 </template>
 
 <script>
-import NegotiationWindowComponent from '@/mixins/negotiation-window-component.js'
 import TabContent from './tab/TabContent.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'NegotiationWindowContent',
   components: {
     TabContent
   },
-  mixins: [NegotiationWindowComponent]
+  computed: {
+    ...mapState({
+      activeTab: state => state.general.activeTab,
+      maximalValueTabTitle: state => state.general.maximalValueTabTitle,
+      minimalValueTabTitle: state => state.general.minimalValueTabTitle
+    })
+  }
 }
 </script>
 

@@ -2,12 +2,15 @@
   <div>
     <input
       :value="value"
-      type="text"
-      @input="updateUnconfirmedValue"
-      @keyup.enter.prevent="send"
+      type="number"
+      min="0"
+      :name="name"
+      aria-placeholder="Type message... TODO"
+      placeholder="Type message... TODO"
+      autofocus
+      @input="$emit('input', $event.target.value)"
+      @keyup.enter="send"
     >
-    value: {{ value }}
-    unconfirmedValue: {{ unconfirmedValue }}
   </div>
 </template>
 
@@ -19,16 +22,16 @@ export default {
       type: String,
       default: '',
       required: false
-    }
-  },
-  data: function () {
-    return {
-      unconfirmedValue: ''
+    },
+    name: {
+      type: String,
+      default: 'name',
+      required: false
     }
   },
   methods: {
-    updateUnconfirmedValue (event) {
-      this.unconfirmedValue = event.target.value
+    send () {
+      this.$emit('send')
     }
   }
 }

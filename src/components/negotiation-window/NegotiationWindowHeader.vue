@@ -1,33 +1,57 @@
 <template>
   <div class="headers__container">
-    <div @click="switchActiveTab(tabsTitles.employerTab)">
+    <div @click="setActiveTab(maximalValueTabTitle)">
       <tab-header
-        :title="tabsTitles.employerTab"
-        :is-active="isActiveTab(tabsTitles.employerTab)"
+        :title="maximalValueTabTitle"
+        :is-active="isActiveTab(maximalValueTabTitle)"
       />
     </div>
-    <div @click="switchActiveTab(tabsTitles.employeeTab)">
+    <div @click="setActiveTab(minimalValueTabTitle)">
       <tab-header
-        :title="tabsTitles.employeeTab"
-        :is-active="isActiveTab(tabsTitles.employeeTab)"
+        :title="minimalValueTabTitle"
+        :is-active="isActiveTab(minimalValueTabTitle)"
       />
     </div>
   </div>
 </template>
 
 <script>
-import NegotiationWindowComponent from '@/mixins/negotiation-window-component.js'
 import TabHeader from './tab/TabHeader.vue'
+import { mapMutations, mapState } from 'vuex'
+import { storeHelpers } from '@/helpers/store.js'
+import isActiveTab from '@/mixins/is-active-tab.js'
+import { MODULE, SET_ACTIVE_TAB } from '@/store/actions/general.js'
 
 export default {
   name: 'NegotiationWindowHeader',
   components: {
     TabHeader
   },
-  mixins: [NegotiationWindowComponent]
+  mixins: [isActiveTab],
+  computed: {
+    ...mapState({
+      activeTab: state => state.general.activeTab,
+      maximalValueTabTitle: state => state.general.maximalValueTabTitle,
+      minimalValueTabTitle: state => state.general.minimalValueTabTitle
+    })
+  },
+  methods: {
+    ...mapMutations({
+      setActiveTab: storeHelpers.concat(MODULE, SET_ACTIVE_TAB)
+    })
+  }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.headers {
+  &__container {
+    display: flex;
+    flex-direction: row;
 
+    * {
+      padding-right: 5px;
+    }
+  }
+}
 </style>

@@ -9,7 +9,7 @@ export default {
   name: 'SendButton',
   methods: {
     send () {
-
+      this.$emit('send')
     }
   }
 }
