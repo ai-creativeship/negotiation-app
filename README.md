@@ -1,5 +1,7 @@
 # negotiation-app
 
+VueJS Assignment - Negotiation App
+
 ## Project setup
 ```
 npm install
