@@ -10,7 +10,6 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "buefy": "^0.7.0",
     "vue": "^2.5.17"
   },
   "devDependencies": {
