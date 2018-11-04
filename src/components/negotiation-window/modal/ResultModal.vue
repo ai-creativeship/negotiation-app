@@ -7,10 +7,10 @@
       Failure
     </div>
     <div>
-       Maximum offer was: {{ maximalValue }}
+      Maximum offer was: {{ maximalValue }}
     </div>
     <div>
-       Minimum expected salary was: {{ minimalValue }}
+      Minimum expected salary was: {{ minimalValue }}
     </div>
     <button @click="setModalOpen(false); resetNegotiationWindow()">Close</button>
   </div>
@@ -20,7 +20,6 @@
 import { mapState, mapMutations } from 'vuex'
 import { storeHelpers } from '@/helpers/store.js'
 import { MODULE, SET_MODAL_OPEN, RESET_NEGOTIATION_WINDOW } from '@/store/actions/general.js'
-
 
 export default {
   name: 'ResultModal',
