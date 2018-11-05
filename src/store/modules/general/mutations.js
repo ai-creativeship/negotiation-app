@@ -34,6 +34,7 @@ export default {
     state.isModalOpen = false
     state.maximalValue = undefined
     state.minimalValue = undefined
+    state.activeTab = state.maximalValueTabTitle
   },
   [SET_MAXIMAL_VALUE_INPUT_PLACEHOLDER]: (state, placeholder) => {
     state.maximalValueInputPlaceholder = placeholder

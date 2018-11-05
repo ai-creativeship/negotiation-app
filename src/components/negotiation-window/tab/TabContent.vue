@@ -21,7 +21,7 @@
 import InputField from './elements/InputField.vue'
 import SendButton from './elements/SendButton.vue'
 import { mapMutations, mapState } from 'vuex'
-import { MODULE, SET_MAXIMAL_VALUE, SET_MINIMAL_VALUE } from '@/store/actions/general.js'
+import { MODULE, SET_ACTIVE_TAB, SET_MAXIMAL_VALUE, SET_MINIMAL_VALUE } from '@/store/actions/general.js'
 import { storeHelpers } from '@/helpers/store.js'
 
 export default {
@@ -58,6 +58,7 @@ export default {
   },
   methods: {
     ...mapMutations({
+      setActiveTab: storeHelpers.concat(MODULE, SET_ACTIVE_TAB),
       setMaximalValue: storeHelpers.concat(MODULE, SET_MAXIMAL_VALUE),
       setMinimalValue: storeHelpers.concat(MODULE, SET_MINIMAL_VALUE)
     }),
@@ -79,6 +80,12 @@ export default {
         this.setMinimalValue(this.unconfirmedValue)
       } else {
         throw new Error('Incorrect tab title - can\'t set correct value')
+      }
+
+      if (!this.maximalValue) {
+        this.setActiveTab(this.maximalValueTabTitle)
+      } else if (!this.minimalValue) {
+        this.setActiveTab(this.minimalValueTabTitle)
       }
 
       this.unconfirmedValue = ''
@@ -104,7 +111,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
