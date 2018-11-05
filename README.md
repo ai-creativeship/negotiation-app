@@ -1,8 +1,6 @@
-# negotiation-app
+# VueJS Assignment - Negotiation App
 
 [![Build Status](https://travis-ci.com/jmaczan/negotiation-app.svg?token=sgNqUBkrsYN1KidWqVXT&branch=master)](https://travis-ci.com/jmaczan/negotiation-app)
-
-VueJS Assignment - Negotiation App
 
 ## Project description
 
@@ -33,11 +31,12 @@ VueJS Assignment - Negotiation App
 1. Sass (SCSS)
 
 #### UX:
-1. Simple, because assigment said so :)
+1. Simple, because the assigment said so :)
 
 ## Customization
 
-#### 
+#### Text
+To provide feature of simple changing texts in component, all messages have been extracted to a single file in constants directory. They are distributed to components through mixin and may be imported in tests.
 
 #### UX
 You can easily modify CSS by adding your own styles to existing files in assets/scss or by creating new files. 

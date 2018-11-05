@@ -43,3 +43,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .negotiation-window {
+    &__wrapper {
+      display: flex;
+    }
+
+    margin: auto;
+    margin-top: 15%;
+    padding: 5px;
+    max-width: 600px;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+</style>
