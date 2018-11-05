@@ -1,11 +1,13 @@
 <template>
   <div class="result-modal">
-    <div v-if="negotiationSucceeded">
-      Success!
-    </div>
-    <div v-else>
-      Failure
-    </div>
+    <h3>
+      <div v-if="negotiationSucceeded">
+        Success!
+      </div>
+      <div v-else>
+        Failure
+      </div>
+    </h3>
     <div>
       Maximum offer was: {{ maximalValue }}
     </div>
@@ -40,11 +42,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.result-modal {
-  display: relative;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  border: 1px solid gray;
-}
+  .result-modal {
+    display: relative;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px;
+  }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="content__container">
     <tab-content
-      v-if="activeTab === maximalValueTabTitle"
+      v-if="isActiveTab(maximalValueTabTitle)"
       :title="maximalValueTabTitle"
     />
     <tab-content
-      v-if="activeTab === minimalValueTabTitle"
+      v-if="isActiveTab(minimalValueTabTitle)"
       :title="minimalValueTabTitle"
     />
   </div>
@@ -13,6 +13,7 @@
 
 <script>
 import TabContent from './tab/TabContent.vue'
+import isActiveTab from '@/mixins/is-active-tab.js'
 import { mapState } from 'vuex'
 
 export default {
@@ -20,6 +21,7 @@ export default {
   components: {
     TabContent
   },
+  mixins: [isActiveTab],
   computed: {
     ...mapState({
       activeTab: state => state.general.activeTab,
@@ -29,7 +31,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

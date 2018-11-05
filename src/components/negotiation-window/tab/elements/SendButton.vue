@@ -12,7 +12,3 @@ export default {
   mixins: [send]
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

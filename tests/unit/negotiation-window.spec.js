@@ -1,5 +1,10 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
+import Vuex from 'vuex'
 import NegotiationWindow from '@/components/negotiation-window/NegotiationWindow.vue'
+
+const localVue = createLocalVue()
+
+localVue.use(Vuex)
 
 describe('NegotiationWindow.vue', () => {
   it('renders a vue instance', () => {

@@ -44,14 +44,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.headers {
-  &__container {
-    display: flex;
-    flex-direction: row;
+  .headers {
+    &__container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
 
-    * {
-      padding-right: 5px;
+      *:not(:last-child) {
+        padding-right: 5px;
+      }
     }
   }
-}
 </style>

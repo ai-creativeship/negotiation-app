@@ -6,7 +6,7 @@ VueJS Assignment - Negotiation App
 
 ## Project description
 
-Sources:
+#### Sources:
 
 1. assets - contain Sassy components structure, which is ready to extend and to customize
 2. components - with main component `NegotiationWindow` contains components structure, used in this assignment. All props have their types and default values, components are quite strongly divided to small elements
@@ -14,24 +14,24 @@ Sources:
 4. mixins - reusable functionalities for components
 5. store - used to simplify state management and to reduce amount of props and emitted events. Store is modularized so allows for simple extending
 
-Tests:
+#### Tests:
 1. Written using Vue test utils and Jest
 2. Their main purpose is to test functionalities (behavior), not implementation
 
-Continuous Integration:
+#### Continuous Integration:
 1. Build on Travis, verifies code and tests
 
-Linting:
+#### Linting:
 1. ESLint Standard
 
-Tooling:
+#### Tooling:
 1. npm
 2. Babel
 
-CSS preprocessor:
+#### CSS preprocessor:
 1. Sass (SCSS)
 
-UX:
+#### UX:
 1. Ignored, because assigment said so :)
 
 ## Project setup
