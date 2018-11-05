@@ -16,6 +16,8 @@ VueJS Assignment - Negotiation App
 #### Tests:
 1. Written using Vue test utils and Jest
 2. Their main purpose is to test functionalities (behavior), not implementation
+3. All tests placed in tests/unit
+4. They are separeted on integration tests (they use Vuex) and unit tests (isolated components)
 
 #### Continuous Integration:
 1. Build on Travis, verifies code and tests
