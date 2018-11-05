@@ -66,7 +66,7 @@ npm run lint
 npm run fix
 ```
 
-### Run unit tests
+### Run tests
 ```
-npm run test:unit
+npm run test
 ```
