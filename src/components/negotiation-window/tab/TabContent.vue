@@ -23,6 +23,7 @@ import SendButton from './elements/SendButton.vue'
 import { mapMutations, mapState } from 'vuex'
 import { MODULE, SET_ACTIVE_TAB, SET_MAXIMAL_VALUE, SET_MINIMAL_VALUE } from '@/store/actions/general.js'
 import { storeHelpers } from '@/helpers/store.js'
+import messages from '@/mixins/messages.js'
 
 export default {
   name: 'TabContent',
@@ -30,6 +31,7 @@ export default {
     InputField,
     SendButton
   },
+  mixins: [messages],
   props: {
     title: {
       type: String,
@@ -45,12 +47,8 @@ export default {
   },
   computed: {
     ...mapState({
-      maximalValueTabTitle: state => state.general.maximalValueTabTitle,
-      minimalValueTabTitle: state => state.general.minimalValueTabTitle,
       maximalValue: state => state.general.maximalValue,
-      minimalValue: state => state.general.minimalValue,
-      maximalValueInputPlaceholder: state => state.general.maximalValueInputPlaceholder,
-      minimalValueInputPlaceholder: state => state.general.minimalValueInputPlaceholder
+      minimalValue: state => state.general.minimalValue
     })
   },
   mounted () {
@@ -74,36 +72,36 @@ export default {
         this.error = ''
       }
 
-      if (this.title === this.maximalValueTabTitle) {
+      if (this.title === this.tabsTitles.maximalValueTabTitle) {
         this.setMaximalValue(this.unconfirmedValue)
-      } else if (this.title === this.minimalValueTabTitle) {
+      } else if (this.title === this.tabsTitles.minimalValueTabTitle) {
         this.setMinimalValue(this.unconfirmedValue)
       } else {
         throw new Error('Incorrect tab title - can\'t set correct value')
       }
 
       if (!this.maximalValue) {
-        this.setActiveTab(this.maximalValueTabTitle)
+        this.setActiveTab(this.tabsTitles.maximalValueTabTitle)
       } else if (!this.minimalValue) {
-        this.setActiveTab(this.minimalValueTabTitle)
+        this.setActiveTab(this.tabsTitles.minimalValueTabTitle)
       }
 
       this.unconfirmedValue = ''
     },
     isVisible () {
-      if (this.title === this.maximalValueTabTitle) {
+      if (this.title === this.tabsTitles.maximalValueTabTitle) {
         return !this.maximalValue
-      } else if (this.title === this.minimalValueTabTitle) {
+      } else if (this.title === this.tabsTitles.minimalValueTabTitle) {
         return !this.minimalValue
       } else {
         throw new Error('Incorrect tab title - can\'t set correct value')
       }
     },
     placeholder () {
-      if (this.title === this.maximalValueTabTitle) {
-        return this.maximalValueInputPlaceholder
-      } else if (this.title === this.minimalValueTabTitle) {
-        return this.minimalValueInputPlaceholder
+      if (this.title === this.tabsTitles.maximalValueTabTitle) {
+        return this.inputPlaceholders.maximalValueInputPlaceholder
+      } else if (this.title === this.tabsTitles.minimalValueTabTitle) {
+        return this.inputPlaceholders.minimalValueInputPlaceholder
       } else {
         throw new Error('Incorrect tab title - can\'t set placeholder')
       }

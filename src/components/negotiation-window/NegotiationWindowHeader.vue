@@ -1,15 +1,15 @@
 <template>
   <div class="headers__container">
-    <div @click="setActiveTab(maximalValueTabTitle)">
+    <div @click="setActiveTab(tabsTitles.maximalValueTabTitle)">
       <tab-header
-        :title="maximalValueTabTitle"
-        :is-active="isActiveTab(maximalValueTabTitle)"
+        :title="tabsTitles.maximalValueTabTitle"
+        :is-active="isActiveTab(tabsTitles.maximalValueTabTitle)"
       />
     </div>
-    <div @click="setActiveTab(minimalValueTabTitle)">
+    <div @click="setActiveTab(tabsTitles.minimalValueTabTitle)">
       <tab-header
-        :title="minimalValueTabTitle"
-        :is-active="isActiveTab(minimalValueTabTitle)"
+        :title="tabsTitles.minimalValueTabTitle"
+        :is-active="isActiveTab(tabsTitles.minimalValueTabTitle)"
       />
     </div>
   </div>
@@ -20,6 +20,7 @@ import TabHeader from './tab/TabHeader.vue'
 import { mapMutations, mapState } from 'vuex'
 import { storeHelpers } from '@/helpers/store.js'
 import isActiveTab from '@/mixins/is-active-tab.js'
+import messages from '@/mixins/messages.js'
 import { MODULE, SET_ACTIVE_TAB } from '@/store/actions/general.js'
 
 export default {
@@ -27,12 +28,10 @@ export default {
   components: {
     TabHeader
   },
-  mixins: [isActiveTab],
+  mixins: [isActiveTab, messages],
   computed: {
     ...mapState({
-      activeTab: state => state.general.activeTab,
-      maximalValueTabTitle: state => state.general.maximalValueTabTitle,
-      minimalValueTabTitle: state => state.general.minimalValueTabTitle
+      activeTab: state => state.general.activeTab
     })
   },
   methods: {

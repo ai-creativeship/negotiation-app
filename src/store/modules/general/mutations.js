@@ -1,6 +1,4 @@
 import { SET_ACTIVE_TAB, SET_MODAL_OPEN, RESET_NEGOTIATION_WINDOW,
-  SET_MAXIMAL_VALUE_INPUT_PLACEHOLDER, SET_MINIMAL_VALUE_INPUT_PLACEHOLDER,
-  SET_MAXIMAL_VALUE_TAB_TITLE, SET_MINIMAL_VALUE_TAB_TITLE,
   SET_MAXIMAL_VALUE, SET_MINIMAL_VALUE } from '../../actions/general'
 
 function areBothValuesSet (state) {
@@ -29,24 +27,12 @@ export default {
   [SET_MODAL_OPEN]: (state, isModalOpen) => {
     state.isModalOpen = isModalOpen
   },
-  [RESET_NEGOTIATION_WINDOW]: (state) => {
+  [RESET_NEGOTIATION_WINDOW]: (state, newActiveTab) => {
     state.negotiationSucceeded = undefined
     state.isModalOpen = false
     state.maximalValue = undefined
     state.minimalValue = undefined
-    state.activeTab = state.maximalValueTabTitle
-  },
-  [SET_MAXIMAL_VALUE_INPUT_PLACEHOLDER]: (state, placeholder) => {
-    state.maximalValueInputPlaceholder = placeholder
-  },
-  [SET_MINIMAL_VALUE_INPUT_PLACEHOLDER]: (state, placeholder) => {
-    state.minimalValueInputPlaceholder = placeholder
-  },
-  [SET_MAXIMAL_VALUE_TAB_TITLE]: (state, title) => {
-    state.maximalValueTabTitle = title
-  },
-  [SET_MINIMAL_VALUE_TAB_TITLE]: (state, title) => {
-    state.minimalValueTabTitle = title
+    state.activeTab = newActiveTab
   },
   [SET_MAXIMAL_VALUE]: (state, value) => {
     if (!state.maximalValue) {

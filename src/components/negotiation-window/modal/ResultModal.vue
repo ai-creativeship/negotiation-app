@@ -2,19 +2,19 @@
   <div class="result-modal">
     <h3>
       <div v-if="negotiationSucceeded">
-        Success!
+        {{ result.success }}
       </div>
       <div v-else>
-        Failure
+        {{ result.failure }}
       </div>
     </h3>
     <div>
-      Maximum offer was: {{ maximalValue }}
+      {{ result.maximalValueDescription }}: {{ maximalValue }}
     </div>
     <div>
-      Minimum expected salary was: {{ minimalValue }}
+      {{ result.minimalValueDescription }}: {{ minimalValue }}
     </div>
-    <button @click="setModalOpen(false); resetNegotiationWindow()">Close</button>
+    <button @click="setModalOpen(false); resetNegotiationWindow(tabsTitles.maximalValueTabTitle)">{{ result.closeButtonText }}</button>
   </div>
 </template>
 
@@ -22,9 +22,11 @@
 import { mapState, mapMutations } from 'vuex'
 import { storeHelpers } from '@/helpers/store.js'
 import { MODULE, SET_MODAL_OPEN, RESET_NEGOTIATION_WINDOW } from '@/store/actions/general.js'
+import messages from '@/mixins/messages.js'
 
 export default {
   name: 'ResultModal',
+  mixins: [messages],
   computed: {
     ...mapState({
       negotiationSucceeded: state => state.general.negotiationSucceeded,
